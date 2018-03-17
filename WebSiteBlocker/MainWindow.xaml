@@ -6,15 +6,16 @@
         xmlns:local="clr-namespace:WebSiteBlocker"
         mc:Ignorable="d"
         Icon="Icons\website-icon-29492.png"
-        Title="WebSiteBlocker" Height="350" Width="525">
+        Title="WebSiteBlocker" Height="550" Width="725">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        
-        <Menu Grid.Row="0">
+
+        <Menu Grid.Row="0" FontSize="14px" Background="#FFF0F0F0">
             <MenuItem Header="Plik">
 
             </MenuItem>
@@ -23,10 +24,72 @@
             </MenuItem>
         </Menu>
 
-        <StackPanel Grid.Row="1" Orientation="Horizontal">
-            <Button Content="Aktywuj" Margin="5px"/>
-            <Button Content="Dezaktywuj" Margin="5px"/>
-        </StackPanel>
+        <Grid Grid.Row="1"  Width="auto">
+            <Grid.Background>
+                <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ControlColorKey}}"/>
+            </Grid.Background>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="0" Margin="5px" Padding="3px">
+                <Button.Content>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="Icons\block.png" Height="25px" Margin="3px"/>
+                        <Label Content="Aktywuj"/>
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+            <Button Grid.Column="1" Margin="5px" Padding="3px">
+                <Button.Content>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="Icons\stop_blocking.png" Height="25px" Margin="3px"/>
+                        <Label Content="Dezaktywuj"/>
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+            <Button Grid.Column="4" Margin="5px" Padding="3px">
+                <Button.Content>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="Icons\custom_settings.png" Height="25px" Margin="3px"/>
+                        <Label Content="Ustawienia"/>
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+        </Grid>
+
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Label Content="Proxy IP: " Grid.Column="0" FontWeight="Bold" Margin="5px">
+                <Label.Background>
+                    <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ControlColorKey}}"/>
+                </Label.Background>
+            </Label>
+            <Label Content=".... " Grid.Column="1" Margin="5px">
+                <Label.Background>
+                    <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ControlColorKey}}"/>
+                </Label.Background>
+            </Label>
+            <Label Content="Proxy PORT: " Grid.Column="2" FontWeight="Bold" Margin="5px">
+                <Label.Background>
+                    <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ControlColorKey}}"/>
+                </Label.Background>
+            </Label>
+            <Label Content=".... " Grid.Column="3" Margin="5px">
+                <Label.Background>
+                    <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ControlColorKey}}"/>
+                </Label.Background>
+            </Label>
+        </Grid>
 
     </Grid>
 </Window>

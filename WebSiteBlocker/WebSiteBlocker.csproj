@@ -101,6 +101,15 @@
   <ItemGroup>
     <Resource Include="Icons\website-icon-29492.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\stop_blocking.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\block.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\custom_settings.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
