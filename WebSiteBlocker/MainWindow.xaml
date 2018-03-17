@@ -62,12 +62,36 @@
             </Button>
         </Grid>
 
-        <Grid Grid.Row="3">
+        <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <ListView Grid.Column="0"/>
+            <GridSplitter Grid.Column="1" Width="2px"/>
+            <Grid Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Button Content="Dodaj" Grid.Row="0" Margin="5px"/>
+                <Button Content="Usuń" Grid.Row="1" Margin="5px"/>
+                <Button Content="Edytuj" Grid.Row="2" Margin="5px"/>
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Row="3">
+            <Grid.Background>
+                <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ControlColorKey}}"/>
+            </Grid.Background>
+            <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Label Content="Proxy IP: " Grid.Column="0" FontWeight="Bold" Margin="5px">
                 <Label.Background>
