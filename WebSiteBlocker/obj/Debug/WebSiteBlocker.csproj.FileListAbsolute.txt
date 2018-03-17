@@ -1,1 +1,14 @@
 C:\Users\Dell\Documents\Visual Studio 2015\Projects\WebSiteBlocker\WebSiteBlocker\bin\Debug\WebSiteBlocker.exe.config
+C:\Users\Dell\Documents\Visual Studio 2015\Projects\WebSiteBlocker\WebSiteBlocker\bin\Debug\WebSiteBlocker.exe
+C:\Users\Dell\Documents\Visual Studio 2015\Projects\WebSiteBlocker\WebSiteBlocker\bin\Debug\WebSiteBlocker.pdb
+C:\Users\Dell\Documents\Visual Studio 2015\Projects\WebSiteBlocker\WebSiteBlocker\obj\Debug\WebSiteBlocker.csprojResolveAssemblyReference.cache
+C:\Users\Dell\Documents\Visual Studio 2015\Projects\WebSiteBlocker\WebSiteBlocker\obj\Debug\MainWindow.g.cs
+C:\Users\Dell\Documents\Visual Studio 2015\Projects\WebSiteBlocker\WebSiteBlocker\obj\Debug\App.g.cs
+C:\Users\Dell\Documents\Visual Studio 2015\Projects\WebSiteBlocker\WebSiteBlocker\obj\Debug\WebSiteBlocker_MarkupCompile.cache
+C:\Users\Dell\Documents\Visual Studio 2015\Projects\WebSiteBlocker\WebSiteBlocker\obj\Debug\WebSiteBlocker_MarkupCompile.lref
+C:\Users\Dell\Documents\Visual Studio 2015\Projects\WebSiteBlocker\WebSiteBlocker\obj\Debug\MainWindow.baml
+C:\Users\Dell\Documents\Visual Studio 2015\Projects\WebSiteBlocker\WebSiteBlocker\obj\Debug\WebSiteBlocker.g.resources
+C:\Users\Dell\Documents\Visual Studio 2015\Projects\WebSiteBlocker\WebSiteBlocker\obj\Debug\WebSiteBlocker.Properties.Resources.resources
+C:\Users\Dell\Documents\Visual Studio 2015\Projects\WebSiteBlocker\WebSiteBlocker\obj\Debug\WebSiteBlocker.csproj.GenerateResource.Cache
+C:\Users\Dell\Documents\Visual Studio 2015\Projects\WebSiteBlocker\WebSiteBlocker\obj\Debug\WebSiteBlocker.exe
+C:\Users\Dell\Documents\Visual Studio 2015\Projects\WebSiteBlocker\WebSiteBlocker\obj\Debug\WebSiteBlocker.pdb

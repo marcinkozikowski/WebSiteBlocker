@@ -5,8 +5,28 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WebSiteBlocker"
         mc:Ignorable="d"
+        Icon="Icons\website-icon-29492.png"
         Title="WebSiteBlocker" Height="350" Width="525">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
         
+        <Menu Grid.Row="0">
+            <MenuItem Header="Plik">
+
+            </MenuItem>
+            <MenuItem Header="Pomoc">
+
+            </MenuItem>
+        </Menu>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal">
+            <Button Content="Aktywuj" Margin="5px"/>
+            <Button Content="Dezaktywuj" Margin="5px"/>
+        </StackPanel>
+
     </Grid>
 </Window>
