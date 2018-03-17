@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebSiteBlocker", "WebSiteBlocker.csproj", "{04D18980-72C6-4681-B1BE-471B2695CE26}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebSiteBlocker", "WebSiteBlocker.csproj", "{8E7A23BF-75B0-403E-A7B4-A27C1E367C12}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{04D18980-72C6-4681-B1BE-471B2695CE26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{04D18980-72C6-4681-B1BE-471B2695CE26}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{04D18980-72C6-4681-B1BE-471B2695CE26}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{04D18980-72C6-4681-B1BE-471B2695CE26}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E7A23BF-75B0-403E-A7B4-A27C1E367C12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E7A23BF-75B0-403E-A7B4-A27C1E367C12}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E7A23BF-75B0-403E-A7B4-A27C1E367C12}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E7A23BF-75B0-403E-A7B4-A27C1E367C12}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
