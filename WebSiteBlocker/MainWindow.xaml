@@ -62,7 +62,16 @@
                     </Button>
 
                     <GroupBox Header="Lista blokowanych stron" Margin="5px" Grid.Row="1" Grid.RowSpan="2" Grid.Column="0" Grid.ColumnSpan="2">
-                        <ListView Grid.Column="0" Name="WebSitesListView" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+                        <ListView Grid.Column="0" Name="WebSitesListView" ScrollViewer.VerticalScrollBarVisibility="Auto" MouseDoubleClick="EditListViewItem">
+                            <ListView.ItemContainerStyle>
+                                <Style TargetType="ListViewItem">
+                                    <Setter Property="FontSize" Value="14" />
+                                    <Setter Property="Foreground" Value="Black" />
+                                    <Setter Property="FontWeight" Value="Bold" />
+                                    <Setter Property="Margin" Value="3px"/>
+                                </Style>
+                            </ListView.ItemContainerStyle>
+                        </ListView>
 
                     </GroupBox>
                     

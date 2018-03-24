@@ -59,5 +59,9 @@ namespace WebSiteBlocker
             }
         }
 
+        private void EditListViewItem(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("Edycja danej strony www");
+        }
     }
 }
