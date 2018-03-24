@@ -19,10 +19,10 @@
             <TabItem Header="WWW Black List">
 
                 
-                <Grid Grid.Row="0"  Width="auto">
+                <Grid  Width="auto">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
+                        <RowDefinition/>
                     </Grid.RowDefinitions>
                     
                     <Grid.Background>
@@ -61,16 +61,18 @@
                         </Button.Content>
                     </Button>
 
-                    <Grid Grid.Row="1" Grid.ColumnSpan="5">
+                    <GroupBox Header="Lista blokowanych stron" Margin="5px" Grid.Row="1" Grid.RowSpan="2" Grid.Column="0" Grid.ColumnSpan="2">
+                        <ListView Grid.Column="0" Name="WebSitesListView" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+
+                    </GroupBox>
+                    
+                    <Grid Grid.Row="1"  Grid.Column="2" Grid.ColumnSpan="3">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition/>
                             <ColumnDefinition Width="Auto"/>
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
-                        <GroupBox Header="Lista blokowanych stron" Margin="5px">
-                            <ListView Grid.Column="0" Name="WebSitesListView"/>
-                        </GroupBox>
-                        
+
                         <GridSplitter Grid.Column="1" Width="2px"/>
                         <Grid Grid.Column="2">
                             <Grid.RowDefinitions>
@@ -93,10 +95,13 @@
             <TabItem Header="Console View">
                 <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="4*"/>
                         <RowDefinition Height="1*"/>
                     </Grid.RowDefinitions>
-                    <TextBlock Text="Console contents..." HorizontalAlignment="Stretch" VerticalAlignment="Stretch" x:Name="ConsoleTextBlock"/>
+                    <GroupBox Header="Console" Margin="5px">
+                        <TextBlock Text="contents..." HorizontalAlignment="Stretch" Margin="5px" VerticalAlignment="Stretch" x:Name="ConsoleTextBlock" Background="Black" Foreground="White" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+                    </GroupBox>
+                    
                     <DockPanel Grid.Row="1">
                         <TextBox/>
                     </DockPanel>
