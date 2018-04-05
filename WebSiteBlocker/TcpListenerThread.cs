@@ -11,9 +11,12 @@ namespace WebSiteBlocker
     class TcpListenerThread
     {
         int port = 8889;
+        bool isActive = false;
+        TcpListener tcplistener;
         public TcpListenerThread(int portN)
         {
             port = portN;
+            isActive = true;
         }
         public TcpListenerThread()
         {
@@ -21,8 +24,8 @@ namespace WebSiteBlocker
         }
         public void run()
         {
-            bool isActive = true;
-            TcpListener tcplistener = new TcpListener(port);
+            
+            tcplistener = new TcpListener(port);
             Console.WriteLine("Listening on port {0}", +port);
             tcplistener.Start();
             while (isActive)
@@ -39,6 +42,11 @@ namespace WebSiteBlocker
                     e.ToString();
                 }
             }
+        }
+        public void stop()
+        {
+            tcplistener.Stop();
+            isActive = false;
         }
     }
 }

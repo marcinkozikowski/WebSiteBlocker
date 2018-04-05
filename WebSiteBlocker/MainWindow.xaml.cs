@@ -9,14 +9,12 @@ using WebSiteBlocker.IO;
 
 namespace WebSiteBlocker
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         List<string> blackWebSitesList;
         private const string FILEPATH = "C:\\Users\\Dell\\Documents\\Visual Studio 2015\\Projects\\WebSiteBlocker\\WebSiteBlocker\\websites.txt";
         Thread tcpListenerThread=null;
+        TcpListenerThread tcpListener;
 
         public MainWindow()
         {
@@ -69,7 +67,8 @@ namespace WebSiteBlocker
             }
             else if(tcpListenerThread == null)
             {
-                tcpListenerThread = new Thread(new TcpListenerThread(port).run);
+                tcpListener = new TcpListenerThread(port);
+                tcpListenerThread = new Thread(tcpListener.run);
                 tcpListenerThread.Start();
             }
 
@@ -79,7 +78,8 @@ namespace WebSiteBlocker
         {
             if (tcpListenerThread.IsAlive && tcpListenerThread !=null)
             {
-                tcpListenerThread.Abort();
+                tcpListener.stop();
+                tcpListenerThread = null;
             }
         }
     }
