@@ -114,6 +114,33 @@ namespace WebSiteBlocker
                 int length = ASCII.GetBytes(message, 0, message.Length, Buffer, 0);
                 s.Send(Buffer, length, 0);
             }
+
+            public void run()   //simple method to listen on ip and port
+        {
+            try
+            {
+                byte[] input = BitConverter.GetBytes(1);
+                byte[] buffer = new byte[4096];
+                clientSocket = new Socket(AddressFamily.InterNetwork, SocketType.Raw, ProtocolType.IP);
+                clientSocket.Bind(new IPEndPoint(IPAddress.Parse("192.168.1.213"), 0));
+                clientSocket.IOControl(IOControlCode.ReceiveAll, input, null);
+
+                int bytes = 0;
+                do
+                {
+                    bytes = clientSocket.Receive(buffer);
+                    if (bytes > 0)
+                    {
+                        Console.WriteLine(Encoding.ASCII.GetString(buffer, 0, bytes));
+                        clientSocket.Send(buffer,bytes,0);
+                    }
+                } while (bytes > 0);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+        }
         }
     
 }

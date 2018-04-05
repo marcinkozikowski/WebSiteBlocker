@@ -82,5 +82,10 @@ namespace WebSiteBlocker
                 tcpListenerThread = null;
             }
         }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            Environment.Exit(0);
+        }
     }
 }
