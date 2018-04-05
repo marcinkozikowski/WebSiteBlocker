@@ -1,17 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Net;
+using System.Net.Sockets;
+using System.Threading;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using WebSiteBlocker.IO;
 
 namespace WebSiteBlocker
@@ -23,6 +16,8 @@ namespace WebSiteBlocker
     {
         List<string> blackWebSitesList;
         private const string FILEPATH = "C:\\Users\\Dell\\Documents\\Visual Studio 2015\\Projects\\WebSiteBlocker\\WebSiteBlocker\\websites.txt";
+        Thread tcpListenerThread=null;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -62,6 +57,30 @@ namespace WebSiteBlocker
         private void EditListViewItem(object sender, MouseButtonEventArgs e)
         {
             MessageBox.Show("Edycja danej strony www");
+        }
+
+        private void StartProxyClick(object sender, RoutedEventArgs e)
+        {
+            int port = 8889;
+
+            if (tcpListenerThread != null && !tcpListenerThread.IsAlive)
+            {
+                tcpListenerThread.Start();
+            }
+            else if(tcpListenerThread == null)
+            {
+                tcpListenerThread = new Thread(new TcpListenerThread(port).run);
+                tcpListenerThread.Start();
+            }
+
+        }
+
+        private void StopProxyClick(object sender, RoutedEventArgs e)
+        {
+            if (tcpListenerThread.IsAlive && tcpListenerThread !=null)
+            {
+                tcpListenerThread.Abort();
+            }
         }
     }
 }
