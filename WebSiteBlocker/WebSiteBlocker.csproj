@@ -55,6 +55,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Classes\Output.cs" />
+    <Compile Include="Interfaces\IOutputObservable.cs" />
+    <Compile Include="Interfaces\IOutputObserver.cs" />
     <Compile Include="ProxyServer.cs" />
     <Compile Include="TcpListenerThread.cs" />
     <Page Include="MainWindow.xaml">

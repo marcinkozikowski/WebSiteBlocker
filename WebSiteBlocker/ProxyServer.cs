@@ -5,12 +5,18 @@ using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Threading;
+using WebSiteBlocker.Classes;
+using WebSiteBlocker.Itrefaces;
 
 namespace WebSiteBlocker
 {
-    class ProxyServer
+    class ProxyServer:IOutputObserver
     {
             Socket clientSocket;
+            Output output;
+            string _message;
             Byte[] read = new byte[1024];
             Byte[] Buffer = null;
             private int port = 8889;
@@ -19,9 +25,10 @@ namespace WebSiteBlocker
             const string CRLF = "\r\n";
             Byte[] RecvBytes = new Byte[4096];
 
-        public ProxyServer(Socket s)
+        public ProxyServer(Socket s,Output o)
         {
             clientSocket = s;
+            output = o;
         }
 
             public ProxyServer()
@@ -53,13 +60,17 @@ namespace WebSiteBlocker
                 {
                     e.ToString();
                 }
-                Console.WriteLine("Connecting to Site: {0}", clientmessage);
+                //Console.WriteLine("Connecting to Site: {0}", clientmessage);
+                _message = "Connecting to Site: " + clientmessage;
+                output.publishMessage(_message);
                 
                 //Console.WriteLine("Connecting to Site: {0}", clientmessage.Substring(index1 + 1, index2 - index1));
                 Console.WriteLine("Connection from {0}", clientSocket.RemoteEndPoint);
+                _message = "Connection from {0}"+ clientSocket.RemoteEndPoint;
+                output.publishMessage(_message);
 
 
-                try
+            try
                 {
                     string part1 = clientmessage.Substring(index1 + 1, index2 - index1);
                     int index3 = part1.IndexOf('/', index1 + 8);
@@ -101,6 +112,7 @@ namespace WebSiteBlocker
                     Console.WriteLine(exc2.ToString());
                 }
             }
+
             private int readmessage(byte[] ByteArray, ref Socket s, ref String clientmessage)
             {
                 int bytes = s.Receive(ByteArray, 1024, 0);
@@ -122,25 +134,34 @@ namespace WebSiteBlocker
                 byte[] input = BitConverter.GetBytes(1);
                 byte[] buffer = new byte[4096];
                 clientSocket = new Socket(AddressFamily.InterNetwork, SocketType.Raw, ProtocolType.IP);
-                clientSocket.Bind(new IPEndPoint(IPAddress.Parse("192.168.1.213"), 0));
+                clientSocket.Bind(new IPEndPoint(IPAddress.Parse("192.168.1.213"), 8889));
                 clientSocket.IOControl(IOControlCode.ReceiveAll, input, null);
 
-                int bytes = 0;
+                int bytess = 0;
                 do
                 {
-                    bytes = clientSocket.Receive(buffer);
-                    if (bytes > 0)
+                    bytess = clientSocket.Receive(buffer);
+                    if (bytess > 0)
                     {
-                        Console.WriteLine(Encoding.ASCII.GetString(buffer, 0, bytes));
-                        clientSocket.Send(buffer,bytes,0);
+                        Console.WriteLine(Encoding.ASCII.GetString(buffer, 0, bytess));
+                        clientSocket.Send(buffer,bytess,0);
                     }
-                } while (bytes > 0);
+                } while (bytess > 0);
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex);
             }
         }
+
+        public void Update()
+        {
+            Application.Current.Dispatcher.BeginInvoke(DispatcherPriority.Normal, (Action)delegate ()
+            {
+                var context = Application.Current.MainWindow as MainWindow;
+                context.ConsoleTextBlock.Text += _message + "\n";
+            });
         }
+    }
     
 }

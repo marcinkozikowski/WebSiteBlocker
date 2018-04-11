@@ -4,8 +4,11 @@ using System.Net;
 using System.Net.Sockets;
 using System.Threading;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
+using WebSiteBlocker.Classes;
 using WebSiteBlocker.IO;
+using WebSiteBlocker.Itrefaces;
 
 namespace WebSiteBlocker
 {
@@ -15,6 +18,8 @@ namespace WebSiteBlocker
         private const string FILEPATH = "C:\\Users\\Dell\\Documents\\Visual Studio 2015\\Projects\\WebSiteBlocker\\WebSiteBlocker\\websites.txt";
         Thread tcpListenerThread=null;
         TcpListenerThread tcpListener;
+        public TextBlock consoleTextBlock;
+        Output observer = new Output();
 
         public MainWindow()
         {
@@ -67,9 +72,10 @@ namespace WebSiteBlocker
             }
             else if(tcpListenerThread == null)
             {
-                tcpListener = new TcpListenerThread(port);
+                tcpListener = new TcpListenerThread(port,observer);
                 tcpListenerThread = new Thread(tcpListener.run);
                 tcpListenerThread.Start();
+                observer.dodajObserwatora(tcpListener);
             }
 
         }
@@ -87,5 +93,12 @@ namespace WebSiteBlocker
         {
             Environment.Exit(0);
         }
+
+        public void updateConsoleView(string message)
+        {
+            ConsoleTextBlock.Text += "\n"+message;
+        }
+
+        public delegate void UpdateTextCallback(string text);
     }
 }

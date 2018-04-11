@@ -109,7 +109,7 @@
                         <RowDefinition Height="1*"/>
                     </Grid.RowDefinitions>
                     <GroupBox Header="Console" Margin="5px">
-                        <TextBlock Text="contents..." HorizontalAlignment="Stretch" Margin="5px" VerticalAlignment="Stretch" x:Name="ConsoleTextBlock" Background="Black" Foreground="White" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+                        <TextBlock Text="" HorizontalAlignment="Stretch" Margin="5px" VerticalAlignment="Stretch" x:Name="ConsoleTextBlock" Background="Black" Foreground="White" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
                     </GroupBox>
                     
                     <DockPanel Grid.Row="1">
